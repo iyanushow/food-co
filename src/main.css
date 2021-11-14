@@ -1,0 +1,117 @@
+/* applying global styles here */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700&display=swap");
+
+/* CSS VARIABLES */
+:root {
+  /* COLORS */
+  --header-height: 3rem;
+  --main-color: #069c54;
+  --main-alt: #048654;
+  --title: #393939;
+  --text-color: #707070;
+  --text-color__light: #a6a6a6;
+  --body-color: #fbfefd;
+  --container: #fffff;
+
+  /* TYPOGRAPHY*/
+  --font: "Poppins", sans-serif;
+  --font__lg: 2.25rem;
+  --font__heading: 1.5rem;
+  --font__subheading: 1.25rem;
+  --font__medium: 1rem;
+  --font__default: 0.938rem;
+  --font__small: 0.813rem;
+  --font__tiny: 0.75rem;
+
+  --font__normal: 500;
+  --font__semi-bold: 600;
+
+  /* UTILITIES */
+  /* MARGINS */
+  --m-1: 0.5rem;
+  --m-2: 1rem;
+  --m-3: 1.5rem;
+  --m-4: 2rem;
+  --m-5: 2.5rem;
+  --m-6: 3rem;
+
+  /* z-indexes */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/* media queries */
+@media (min-width: 768px) {
+  :root {
+    --font__lg: 4rem;
+    --font__heading: 2.25rem;
+    --font__subheading: 1.5rem;
+    --font__medium: 1.25rem;
+    --font__default: 1rem;
+    --font__small: 0.875rem;
+    --font__tiny: 0.813rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--font);
+  font-size: var(--font__default);
+  background: var(--body-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.section {
+  padding: 4rem 0 2rem;
+}
+.section-title,
+.section-subtitle {
+  text-align: center;
+}
+.section-title {
+  font-size: var(--font__heading);
+  color: var(--title);
+  margin-bottom: var(--m-3);
+}
+
+.section-subtitle {
+  display: block;
+  color: var(--main-color);
+  font-weight: var(--font__normal);
+  margin-bottom: var(--m-1);
+}
+
+/* LAYOUT */
+.container {
+  max-width: 960px;
+  width: calc(100%-2rem);
+  margin: auto var(--m-2);
+}
+
+.bd-grid {
+  display: grid;
+  gap: 1.5rem;
+}
