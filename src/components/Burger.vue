@@ -5,23 +5,23 @@
 </template>
 
 <script>
-  import "boxicons";
-  export default {
-    components: {},
-    setup(props, context) {
-      const openNav = () => {
-        context.emit("showMenu");
-      };
+import 'boxicons';
+export default {
+  components: {},
+  setup(props, context) {
+    const openNav = () => {
+      context.emit('showMenu');
+    };
 
-      return {
-        openNav,
-      };
-    },
-  };
+    return {
+      openNav,
+    };
+  },
+};
 </script>
 <style scoped>
-  .nav__toggle {
-    font-size: 1.3rem;
-    cursor: pointer;
-  }
+.nav__toggle {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
 </style>
