@@ -1,10 +1,11 @@
 /* applying global styles here */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700&display=swap');
 
 /* CSS VARIABLES */
 :root {
-  /* COLORS */
   --header-height: 3rem;
+
+  /* COLORS */
   --main-color: #069c54;
   --main-alt: #048654;
   --title: #393939;
@@ -14,7 +15,7 @@
   --container: #fffff;
 
   /* TYPOGRAPHY*/
-  --font: "Poppins", sans-serif;
+  --font: 'Poppins', sans-serif;
   --font__lg: 2.25rem;
   --font__heading: 1.5rem;
   --font__subheading: 1.25rem;
@@ -114,4 +115,18 @@ img {
 .bd-grid {
   display: grid;
   gap: 1.5rem;
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--main-color);
+
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: var(--main-alt);
 }
