@@ -1,28 +1,23 @@
 <template>
-  <a href="" class="scrollTop" :class="{ 'scroll-top': changeHeader }" id="scroll-top">
-    <box-icon name="chevron-up" class="scrollIcon"></box-icon>
+  <a class="scrollTop" :class="{ 'scroll-top': changeHeader }" id="scroll-top">
+    <box-icon name="chevron-up" class="scrollIcon" @click="scrollToTop"></box-icon>
   </a>
 </template>
 
 <script>
-import { ref, watch } from 'vue';
+import useScroll from './composables/useScroll';
+
 export default {
   setup() {
-    const changeHeader = ref(false);
-    const windowOffset = ref(window.scrollY);
+    const { changeScroll } = useScroll(560);
 
-    watch(windowOffset, (newVal, oldVal) => {
-      console.log(oldVal, newVal);
-      if (newVal >= 560) {
-        // add scrollheader class
-        changeHeader.value = true;
-      } else {
-        changeHeader.value = false;
-      }
-    });
+    const scrollToTop = () => {
+      window.scrollTo(0, 0);
+    };
 
     return {
-      changeHeader,
+      changeHeader: changeScroll,
+      scrollToTop,
     };
   },
 };

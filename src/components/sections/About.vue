@@ -2,12 +2,12 @@
   <div class="about section container" id="about">
     <div class="about__container bd-grid">
       <div class="about__data">
-        <span class="section-subtitle">About us</span>
-        <h2 class="section-title">
+        <span class="section-subtitle about__initial">About us</span>
+        <h2 class="section-title about__initial">
           We make the best <br />
           tasty food
         </h2>
-        <p class="about_-description">Legendary cuisine to satisfy your cravings</p>
+        <p class="about__description">Legendary cuisine to satisfy your cravings</p>
         <a href="#" class="button">Explore History</a>
       </div>
 
@@ -30,5 +30,28 @@ export default {};
 .about__img {
   width: 280px;
   border-radius: 0.5rem;
+}
+
+@media screen and (min-width: 576px) {
+  .about__container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .about__data,
+  .about__initial {
+    text-align: initial;
+  }
+
+  .about__img {
+    width: 380px;
+    order: -1;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .about__container {
+    column-gap: 7rem;
+  }
 }
 </style>

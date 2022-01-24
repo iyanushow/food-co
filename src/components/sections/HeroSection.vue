@@ -40,4 +40,28 @@ export default {};
   width: 300px;
   justify-self: center;
 }
+
+.hero__data {
+  text-align: center;
+}
+
+@media screen and (min-width: 576px) {
+  .home__container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home__container {
+    height: 100vh;
+    justify-items: center;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .home__img {
+    width: 500px;
+  }
+}
 </style>

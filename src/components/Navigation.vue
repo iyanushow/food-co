@@ -20,6 +20,8 @@
           <li class="nav__item" @click="toggleMenu">
             <a class="nav__link" :class="{ active_link: active[4] }" href="#contact">Contact</a>
           </li>
+
+          <ThemeChanger />
         </ul>
       </div>
 
@@ -31,12 +33,14 @@
 <script>
 import Burger from './Burger.vue';
 import ScrollTop from './ScrollTop.vue';
-import { onBeforeUpdate, onUpdated, watch } from 'vue';
+import ThemeChanger from './ThemeChanger.vue';
+import useScroll from './composables/useScroll';
 import { reactive, ref, toRefs } from '@vue/reactivity';
 export default {
   components: {
     Burger,
     ScrollTop,
+    ThemeChanger,
   },
 
   setup() {
@@ -49,46 +53,12 @@ export default {
     let linkRefs = [];
     const activeState = reactive({ active: Array.from({ length: 5 }, (x, i) => i === 0) });
 
-    const changeHeader = ref(false);
-    const windowOffset = ref(window.scrollY);
-
-    watch(windowOffset, (newVal, oldVal) => {
-      console.log(oldVal, newVal);
-      if (newVal >= 200) {
-        // add scrollheader class
-        changeHeader.value = true;
-      } else {
-        changeHeader.value = false;
-      }
-    });
-
-    console.log(changeHeader);
-
-    // const setRef = el => {
-    //   el && linkRefs.push(el);
-    // };
-
-    // const scrollActive = () => {
-    //   const scrollY = window.scrollY;
-
-    //   linkRefs.map(section => {
-    //     const sectionHeight = section.offsetHeight;
-    //   });
-    // };
-
-    // onBeforeUpdate(() => {
-    //   linkRefs = [];
-    // });
-    // onUpdated(() => {
-    //   console.log(linkRefs);
-    // });
-
-    console.log(linkRefs);
+    const { changeScroll } = useScroll(200);
 
     return {
       //  DATE
       isMenuOpen,
-      changeHeader,
+      changeHeader: changeScroll,
       ...toRefs(activeState),
 
       // METHODS
@@ -156,5 +126,16 @@ nav {
 
 .scroll-header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (min-width: 768px) {
+  .nav__item {
+    margin-left: var(--m-5);
+    margin-bottom: 0;
+  }
+
+  .nav__toggle {
+    display: none;
+  }
 }
 </style>
